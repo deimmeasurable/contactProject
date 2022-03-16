@@ -3,16 +3,20 @@ package africa.semicolon.phoneBook.data.repository;
 import africa.semicolon.phoneBook.data.model.Contact;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import static org.junit.jupiter.api.Assertions.*;
+@Service
 
 class ContactRepositoryImplTest {
+    @Autowired
     ContactRepository contactRepository;
 
 
     @BeforeEach
     public void SetUp() {
-        contactRepository = new ContactRepositoryImpl();
+//        contactRepository ;
     }
 
     @Test
@@ -90,7 +94,7 @@ void testThatContactCanBeGottenByFirstName(){
     contactRepository.save(contact3);
     contact.setFirstName("den");
 
-        Contact foundContact = contactRepository.searchContact("den");
+        Contact foundContact = contactRepository.findContactByFirstName("den");
 
     assertEquals("den",foundContact.getFirstName());
 }
@@ -106,7 +110,7 @@ void testThatContactCanBeGottenByLastName(){
     contactRepository.save(contact2);
     contactRepository.save(contact3);
     contact.setMobile("090654732");
-    Contact foundContactByPhoneNumber = contactRepository.searchContactByPhoneNumber("090654732");
+    Contact foundContactByPhoneNumber = contactRepository.findContactByMobile("090654732");
 
     assertEquals("090654732",foundContactByPhoneNumber.getMobile());
 
@@ -123,7 +127,7 @@ void  testThatContactCanBeDeleteByPhoneNumber(){
     contactRepository.save(contact2);
     contactRepository.save(contact3);
 
-    contactRepository.deleteByMobile("0905632412");
+    contactRepository.deleteContactByMobile("0905632412");
     assertEquals(2,contactRepository.count());
 }
 

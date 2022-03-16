@@ -15,4 +15,7 @@ public interface ContactService {
 
     FindContactResponse findUserByFirstName(String firstName);
 
+    FindContactResponse DeleteByPhoneNumber(String mobile);
+
+//    FindContactResponse DeleteByPhoneNumber(String phoneNumber);
 }

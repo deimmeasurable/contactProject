@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @Document("Contact")
+@AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
 @RequiredArgsConstructor // it picks specific field in an object;

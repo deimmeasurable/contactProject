@@ -8,7 +8,9 @@ import lombok.Setter;
 public class FindContactResponse {
     private String mobile;
     private  String fullName;
-      private   String firstName;
+    private   String firstName;
+    private String message;
+
 
 
 }
